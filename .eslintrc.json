@@ -27,6 +27,7 @@
     "prettier/prettier": 2, // Means error
     "quotes": [2, "single", "avoid-escape"],
     "@typescript-eslint/explicit-function-return-type": "warn",
+    // "import/no-extraneous-dependencies": ["error", {"devDependencies": true, "packageDir": "./src"}],
     "jest/no-standalone-expect": "off"
     // "@typescript-eslint/no-explicit-any": "off"
   }
