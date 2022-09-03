@@ -2,6 +2,9 @@
 
 # bitloops-gherkin
 
+[![npm version][npmimg]][npm]
+[![Known Vulnerabilities][snyk-image]][snyk-url]
+
 node.js package that allows you to generate gherkin tables in Cucumber feature files using Google Sheets
 
 ## Installation
@@ -162,3 +165,8 @@ As you can see, your feature file now contains two sets of examples: one that is
 Currently, bitloops-gherkins supports API keys and public Google Sheet files. In the future private files will also be supported.
 
 # Like what you see? Don't forget to star ⭐ our repo!
+
+[snyk-image]: https://snyk.io/test/github/bitloops/bitloops-gherkin-ts/badge.svg
+[snyk-url]: https://snyk.io/test/github/bitloops/bitloops-gherkin-ts
+[npmimg]: https://img.shields.io/npm/v/bitloops-gherkin.svg
+[npm]: https://www.npmjs.org/package/bitloops-gherkin
