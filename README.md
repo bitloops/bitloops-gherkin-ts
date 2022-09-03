@@ -4,7 +4,7 @@
 [![npm version][npmimg]][npm]
 [![Known Vulnerabilities][snyk-image]][snyk-url]
 
-node.js package that automatically generates Gherkin tables in Cucumber .feature from test data pulled from your Google Sheet! :heart_eyes: :star2: :tada:
+node.js package that automatically generates Gherkin tables in Cucumber .feature files from test data pulled from your Google Sheet! :heart_eyes: :star2: :tada:
 
 ![Demo](https://storage.googleapis.com/bitloops-github-assets/bitloops-gherkin.gif)
 
