@@ -106,16 +106,23 @@ export class Encoder {
             let row = '|';
             let encodedRow = '|';
             for (let j = 0; j < rows[i].length; j++) {
-              row += ` ${rows[i][j]} |`;
-              encodedRow += ` ${this.encoder.encode(rows[i][j])} |`;
+              if (
+                j > 0 &&
+                (rows[i][0].toLowerCase().includes('active') ||
+                  rows[i][0].toLowerCase() === 'status') &&
+                !rows[0][j].includes('@ignore')
+              ) {
+                row += ` ${rows[i][j]} |`;
+                encodedRow += ` ${this.encoder.encode(rows[i][j])} |`;
+              }
             }
             if (i === 0) {
-              outputString += `     # ${row} @bitloops-auto-generated |
+              outputString += `     # ${row.replaceAll('\n', ' ')} @bitloops-auto-generated |
   `;
               encodedString += `      ${row} @bitloops-auto-generated |
   `;
-            } else {
-              outputString += `     # ${row} @bitloops-auto-generated |
+            } else if (row !== '|') {
+              outputString += `     # ${row.replaceAll('\n', ' ')} @bitloops-auto-generated |
   `;
               encodedString += `      ${encodedRow} @bitloops-auto-generated |
   `;

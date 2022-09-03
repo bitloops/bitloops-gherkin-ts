@@ -49,6 +49,8 @@ const encode = async (source: ICollection): Promise<void> => {
   const { testFile } = answers;
   const encoder = new Encoder(apiKey, testFile);
   await encoder.encodeFeatureFile();
+  const greenColor = chalk.hex('#00ff00');
+  console.log(greenColor('Feature file generated successfully!'));
 };
 
 export default encode;

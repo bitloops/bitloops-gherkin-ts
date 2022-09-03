@@ -32,7 +32,7 @@
     "@types/node": "~16",
     "@typescript-eslint/eslint-plugin": "~5.26",
     "@typescript-eslint/parser": "~5.26",
-    "bitloops-gherkin": "^0.1.1",
+    "bitloops-gherkin": "^0.2.0",
     "env-cmd": "^10.1.0",
     "eslint": "~8.16",
     "eslint-config-prettier": "~8.5",
@@ -55,7 +55,7 @@
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "prettier": "prettier --config .prettierrc --write .",
     "encode-cli": "./node_modules/.bin/env-cmd --silent -f .env bitloops-gherkin encode -t",
-    "encode": "./node_modules/.bin/env-cmd --silent -f .env ./node_modules/.bin/bitloops-gherkin encode -t"
+    "encode": "./node_modules/.bin/env-cmd --silent -f .env bitloops-gherkin encode -t"
   },
   "author": "Bitloops S.A.",
   "license": "GPL-3.0",

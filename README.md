@@ -1,4 +1,5 @@
 ![Bitloops](https://storage.googleapis.com/wwwbitloopscom/bitloops-logo_320x80.png)
+
 # bitloops-gherkin
 
 [![npm version][npmimg]][npm]
@@ -72,6 +73,7 @@ You have two ways of using your API key. Either you include it in your command w
 
 Create your Google Sheet that will contain your tests. Name the tabs after your tests as can be found in your steps file. See this [example](https://docs.google.com/spreadsheets/d/1ILKwKeRaOEh7_uAVIyfDVqUPbEdCNIlAaOEFY-zdMzU/edit#gid=0).
 > Make sure the Google Sheet has public read permissions.
+> Make sure you start with a column named *status* and add values *active* for the tests you want to be sent to your *.feature* file.
 
 First of all, we create our Cucumber feature file as normal but instead of including the usual ***Example*** table, we add the Google sheet that contains our tests.
 
@@ -206,6 +208,40 @@ Finally, if you do not want to install the global CLI, you can add the following
 ```json
 "encode": "./node_modules/.bin/env-cmd --silent -f .env ./node_modules/.bin/bitloops-gherkin encode -t",
 ```
+
+## Cool Sheet Features
+
+### Test Status
+
+You can set a *status* for your tests. You need to name the first column *status* and set the test you want to run to *active*. You can set other statuses such as *backlog* for tests you have written to express requirements but that you don't want to go into production before you do the development that would cause your tests to fail.
+
+### Comments beside your tests
+
+You can add as many columns that contain the *@ignore* decorator and these are ignored and never reach your *.feature* file.
+
+## API
+
+### decode | d
+
+Decodes a string that contains comma-separated numbers that represent a Buffer Array and returns the string.
+
+### encode | e
+
+Encodes a value from string to Buffer Array.
+
+## Commands
+
+### encode
+
+Pull the data from the Google Sheet and adds the Gherkin table under each test. Its flags are *-t* for the test file and *-k* for the API key.
+
+### version
+
+Shows the current version of the package and CLI.
+
+### copyright
+
+Displays the copyright information.
 
 ## Limitations
 

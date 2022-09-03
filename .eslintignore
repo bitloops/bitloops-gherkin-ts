@@ -1,3 +1,6 @@
 /**/*.js
 examples
 examples/.eslintrc.json
+index.js
+index.d.ts
+lib
