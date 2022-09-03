@@ -7,7 +7,7 @@
 
 node.js package that automatically generates Gherkin tables in Cucumber .feature files from test data pulled from your Google Sheet! :heart_eyes: :star2: :tada:
 
-![Demo](https://storage.googleapis.com/bitloops-github-assets/bitloops-gherkin.gif)
+![Demo](https://storage.googleapis.com/bitloops-github-assets/bitloops-gherkin-v0.2.0.gif)
 
 ## Installation
 
