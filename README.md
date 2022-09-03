@@ -4,13 +4,13 @@
 [![npm version][npmimg]][npm]
 [![Known Vulnerabilities][snyk-image]][snyk-url]
 
-node.js package that allows you to generate gherkin tables in Cucumber feature files using Google Sheets
+node.js package that automatically generates Gherkin tables in Cucumber .feature from test data pulled from your Google Sheet! :heart_eyes: :star2: :tada:
 
 ![Demo](https://storage.googleapis.com/bitloops-github-assets/bitloops-gherkin.gif)
 
 ## Installation
 
-> Only yarn or npm is necessary! Don't do both!
+> :exclamation: Only yarn or npm is necessary! Don't do both!
 
 If you install the global CLI, then you can fill your feature files by using the **bitloops-gherkin** command directly. If you only install it as a developer dependency add something like this in your scripts:
 
@@ -142,7 +142,7 @@ Using a .env file you can run the following:
 
 > ./node_modules/.bin/env-cmd -f .env bitloops-gherkin encode -t ./\_\_tests\_\_/step-definitions/testGoogleSheets.step.ts
 
-### That's it!
+### That's it! :tada:
 
 You should see your feature file automatically populated like below:
 
