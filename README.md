@@ -1,11 +1,12 @@
 ![Bitloops](https://storage.googleapis.com/wwwbitloopscom/bitloops-logo_320x80.png)
-
 # bitloops-gherkin
 
 [![npm version][npmimg]][npm]
 [![Known Vulnerabilities][snyk-image]][snyk-url]
 
 node.js package that allows you to generate gherkin tables in Cucumber feature files using Google Sheets
+
+![Demo](https://storage.googleapis.com/bitloops-github-assets/bitloops-gherkin.gif)
 
 ## Installation
 
