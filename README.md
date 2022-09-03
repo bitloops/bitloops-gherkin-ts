@@ -15,7 +15,7 @@ node.js package that allows you to generate gherkin tables in Cucumber feature f
 If you install the global CLI, then you can fill your feature files by using the **bitloops-gherkin** command directly. If you only install it as a developer dependency add something like this in your scripts:
 
 ```json
-"encode": "./node_modules/.bin/env-cmd -f .env ./node_modules/.bin/bitloops-gherkin encode -t",
+"encode": "./node_modules/.bin/env-cmd --silent -f .env ./node_modules/.bin/bitloops-gherkin encode -t",
 ```
 
 In any case, it is advisable to install the developer dependency in your projects in order to import the decode function in your tests ([see](#step-3))
@@ -192,7 +192,7 @@ As you can see, your feature file now contains two sets of examples: one that is
 To make it easier to run your command, while loading your **.env** file, you can create a script to place in your **package.json** file like the following:
 
 ```json
-"encode": "./node_modules/.bin/env-cmd -f .env bitloops-gherkin encode -t",
+"encode": "./node_modules/.bin/env-cmd --silent -f .env bitloops-gherkin encode -t",
 ```
 
 Then to download and encode your tests into your **feature** file you can just run this (***note that you pass the step.ts file not the feature file***):
@@ -204,7 +204,7 @@ yarn encode ./__tests__/step-definitions/testGoogleSheets.step.ts
 Finally, if you do not want to install the global CLI, you can add the following command to your **package.json**:
 
 ```json
-"encode": "./node_modules/.bin/env-cmd -f .env ./node_modules/.bin/bitloops-gherkin encode -t",
+"encode": "./node_modules/.bin/env-cmd --silent -f .env ./node_modules/.bin/bitloops-gherkin encode -t",
 ```
 
 ## Limitations

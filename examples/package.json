@@ -51,26 +51,11 @@
     "typescript": "4.7.4"
   },
   "scripts": {
-    "generate-dts": "rimraf src/grammar/Bitloops*.ts && node --experimental-vm-modules node_modules/typescript/bin/tsc src/grammar/Bitloops*js --declaration --emitDeclarationOnly --allowJs --outDir src/grammar && node_modules/prettier/bin-prettier.js --config .prettierrc --write src/grammar/*.d.ts",
-    "ant": "java -jar /usr/local/lib/antlr-4.10.1-complete.jar -Dlanguage=JavaScript src/grammar/BitloopsLexer.g4 && java -jar /usr/local/lib/antlr-4.10.1-complete.jar -Dlanguage=JavaScript src/grammar/BitloopsParser.g4 && yarn generate-dts",
-    "ant:setup": "java -jar /usr/local/lib/antlr-4.10.1-complete.jar -Dlanguage=JavaScript src/grammar/BitloopsSetupLexer.g4 && java -jar /usr/local/lib/antlr-4.10.1-complete.jar -Dlanguage=JavaScript src/grammar/BitloopsSetupParser.g4 && yarn generate-dts",
-    "copy-files": "copyfiles -u 1 src/**/*.html src/**/*.css src/scripts/workflows/*.json src/scripts/docker/* lib",
-    "start": "node lib/src/index.js",
-    "clean": "rimraf coverage lib tmp",
-    "prebuild": "npm run lint",
-    "build:dev": "tsc -p tsconfig.json",
-    "build:watch": "tsc -w -p tsconfig.json",
-    "build:release": "npm run clean && tsc -p tsconfig.release.json",
-    "build": "yarn clean && tsc -p . && yarn copy-files && chmod +x lib/src/index.js",
-    "install:local": "yarn build && npm i -g",
-    "lint": "eslint . --ext .ts --ext .mts",
     "test:coverage": "node --experimental-vm-modules node_modules/jest/bin/jest.js --coverage",
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "prettier": "prettier --config .prettierrc --write .",
-    "test:watch": "jest --watch",
-    "ts-node-esm": "node --loader ts-node/esm",
-    "encode-cli": "./node_modules/.bin/env-cmd -f .env bitloops-gherkin encode -t",
-    "encode": "./node_modules/.bin/env-cmd -f .env ./node_modules/.bin/bitloops-gherkin encode -t"
+    "encode-cli": "./node_modules/.bin/env-cmd --silent -f .env bitloops-gherkin encode -t",
+    "encode": "./node_modules/.bin/env-cmd --silent -f .env ./node_modules/.bin/bitloops-gherkin encode -t"
   },
   "author": "Bitloops S.A.",
   "license": "GPL-3.0",
