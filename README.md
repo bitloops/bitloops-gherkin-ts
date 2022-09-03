@@ -9,16 +9,42 @@ node.js package that allows you to generate gherkin tables in Cucumber feature f
 
 ## Installation
 
-Using npm:
+> Only yarn or npm is necessary! Don't do both!
 
-```bash
-npm install -g bitloops-gherkin
+If you install the global CLI, then you can fill your feature files by using the **bitloops-gherkin** command directly. If you only install it as a developer dependency add something like this in your scripts:
+
+```json
+"encode": "./node_modules/.bin/env-cmd -f .env ./node_modules/.bin/bitloops-gherkin encode -t",
 ```
 
-Using yarn:
+In any case, it is advisable to install the developer dependency in your projects in order to import the decode function in your tests ([see](#step-3))
+
+### Yarn
+
+To use as a developer dependency
+
+```bash
+yarn add -D bitloops-gherkin
+```
+
+Global package to run as a CLI
 
 ```bash
 yarn global add bitloops-gherkin
+```
+
+### npm
+
+To use as a developer dependency
+
+```bash
+npm install --save-dev bitloops-gherkin
+```
+
+Global package to run as a CLI
+
+```bash
+npm install -g bitloops-gherkin
 ```
 
 ## Usage
@@ -39,11 +65,11 @@ See:
 
 Keep note of your API key.
 
-You have two ways of using your API key. Either you include it in your command when you run the encode process (see below) or just add it in a .env file as a parameter named **BITLOOPS_GHERKIN_GOOGLE_SHEETS_API_KEY**
+You have two ways of using your API key. Either you include it in your command when you run the encode process ([see](#optional)) or just add it in a .env file as a parameter named **BITLOOPS_GHERKIN_GOOGLE_SHEETS_API_KEY**
 
 ### Step 2
 
-Create your Google Sheet that will contain your tests. Name the tabs after your tests as can be found in your steps file. See this [example](https://docs.google.com/spreadsheets/d/1ILKwKeRaOEh7_uAVIyfDVqUPbEdCNIlAaOEFY-zdMzU/edit#gid=0). 
+Create your Google Sheet that will contain your tests. Name the tabs after your tests as can be found in your steps file. See this [example](https://docs.google.com/spreadsheets/d/1ILKwKeRaOEh7_uAVIyfDVqUPbEdCNIlAaOEFY-zdMzU/edit#gid=0).
 > Make sure the Google Sheet has public read permissions.
 
 First of all, we create our Cucumber feature file as normal but instead of including the usual ***Example*** table, we add the Google sheet that contains our tests.
@@ -160,9 +186,29 @@ As you can see, your feature file now contains two sets of examples: one that is
 
 > PRO Tip: you can use structured JSON data to add any kind of test data in your tables.
 
+### Optional
+
+To make it easier to run your command, while loading your **.env** file, you can create a script to place in your **package.json** file like the following:
+
+```json
+"encode": "./node_modules/.bin/env-cmd -f .env bitloops-gherkin encode -t",
+```
+
+Then to download and encode your tests into your **feature** file you can just run this (***note that you pass the step.ts file not the feature file***):
+
+```bash
+yarn encode ./__tests__/step-definitions/testGoogleSheets.step.ts
+```
+
+Finally, if you do not want to install the global CLI, you can add the following command to your **package.json**:
+
+```json
+"encode": "./node_modules/.bin/env-cmd -f .env ./node_modules/.bin/bitloops-gherkin encode -t",
+```
+
 ## Limitations
 
-Currently, bitloops-gherkins supports API keys and public Google Sheet files. In the future private files will also be supported.
+Currently, bitloops-gherkins supports API keys and public Google Sheet files. In the future, private sheets will also be supported.
 
 # Like what you see? Don't forget to star ⭐ our repo!
 
