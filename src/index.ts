@@ -22,13 +22,15 @@ import { Command } from 'commander';
 import chalk from 'chalk';
 import figlet from 'figlet';
 import { TextEncoder } from 'util';
-import fs from 'fs';
-import path from 'path';
-import appRoot from 'app-root-path';
+// import fs from 'fs';
+// import path from 'path';
+// import appRoot from 'app-root-path';
 
 import { decoder } from './decoder.js';
 import enc from './commands/encode.js';
 import copyright, { copyrightSnippet } from './commands/copyright.js';
+
+const VERSION = '0.2.2';
 
 const decode = decoder;
 const d = decoder;
@@ -61,13 +63,13 @@ program
   .command('version')
   .description('Print version information')
   .action(() => {
-    fs.readFile(path.join(appRoot.path, './package.json'), 'utf8', (err, data) => {
-      if (err) {
-        console.error(err);
-        return;
-      }
-      console.log(`You are running v${JSON.parse(data).version}`);
-    });
+    // fs.readFile(path.join(appRoot.path, './package.json'), 'utf8', (err, data) => {
+    //   if (err) {
+    //     console.error(err);
+    //     return;
+    //   }
+    console.log(`You are running v${VERSION}`);
+    // });
   });
 
 program.parse(process.argv);

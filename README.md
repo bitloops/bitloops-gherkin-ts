@@ -9,6 +9,8 @@ node.js package that automatically generates Gherkin tables in Cucumber .feature
 
 ![Demo](https://storage.googleapis.com/bitloops-github-assets/bitloops-gherkin-v0.2.0.gif)
 
+> Please note that there has been a change in version v0.2.2 where status now requires an @ in front of it (@status) in order to unreserve the word status for other columns
+
 ## Installation
 
 > :exclamation: Only yarn or npm is necessary! Don't do both!
@@ -73,7 +75,7 @@ You have two ways of using your API key. Either you include it in your command w
 
 Create your Google Sheet that will contain your tests. Name the tabs after your tests as can be found in your steps file. See this [example](https://docs.google.com/spreadsheets/d/1ILKwKeRaOEh7_uAVIyfDVqUPbEdCNIlAaOEFY-zdMzU/edit#gid=0).
 > Make sure the Google Sheet has public read permissions.
-> Make sure you start with a column named *status* and add values *active* for the tests you want to be sent to your *.feature* file.
+> Make sure you start with a column named *@status* and add values *active* for the tests you want to be sent to your *.feature* file.
 
 First of all, we create our Cucumber feature file as normal but instead of including the usual ***Example*** table, we add the Google sheet that contains our tests.
 
@@ -213,7 +215,7 @@ Finally, if you do not want to install the global CLI, you can add the following
 
 ### Test Status
 
-You can set a *status* for your tests. You need to name the first column *status* and set the test you want to run to *active*. You can set other statuses such as *backlog* for tests you have written to express requirements but that you don't want to go into production before you do the development that would cause your tests to fail.
+You can set a *@status* for your tests. You need to name the first column *@status* and set the test you want to run to *active*. You can set other statuses such as *backlog* for tests you have written to express requirements but that you don't want to go into production before you do the development that would cause your tests to fail.
 
 ### Comments beside your tests
 

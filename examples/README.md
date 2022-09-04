@@ -6,6 +6,8 @@ Example of usage of bitloops-gherkin
 
 ![Demo](https://storage.googleapis.com/bitloops-github-assets/bitloops-gherkin.gif)
 
+> Please note that there has been a change in version v0.2.2 where status now requires an @ in front of it (@status) in order to unreserve the word status for other columns
+
 Run the following commands to run this project locally:
 
 ## 1. Clone the repo

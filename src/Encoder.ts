@@ -109,7 +109,7 @@ export class Encoder {
               if (
                 j > 0 &&
                 (rows[i][0].toLowerCase().includes('active') ||
-                  rows[i][0].toLowerCase() === 'status') &&
+                  rows[i][0].toLowerCase() === '@status') &&
                 !rows[0][j].includes('@ignore')
               ) {
                 row += ` ${rows[i][j]} |`;
