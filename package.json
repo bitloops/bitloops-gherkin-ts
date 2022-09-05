@@ -1,6 +1,6 @@
 {
   "name": "bitloops-gherkin",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "bitloops-gherkin is a node.js package that allows you to generate Gherkin tables in Cucumber feature files using Google Sheets",
   "type": "module",
   "engines": {
