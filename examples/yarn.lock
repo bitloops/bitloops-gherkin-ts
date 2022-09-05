@@ -1488,10 +1488,10 @@ bignumber.js@^9.0.0:
   resolved "https://registry.yarnpkg.com/bignumber.js/-/bignumber.js-9.1.0.tgz#8d340146107fe3a6cb8d40699643c302e8773b62"
   integrity sha512-4LwHK4nfDOraBCtst+wOWIHbu1vhvAPJK8g8nROd4iuc3PSEjWif/qwbkh8jwCJz6yDBvtU4KPynETgrfh7y3A==
 
-bitloops-gherkin@^0.2.4:
-  version "0.2.4"
-  resolved "https://registry.yarnpkg.com/bitloops-gherkin/-/bitloops-gherkin-0.2.4.tgz#d93c8057d0c13e93248c58cc2ff691888d6f1baf"
-  integrity sha512-yiYZkJ/DSgWiXOCDT5qVaDNJiam+QioAstVcz9wD2ACkGswLM5F6a7hyu/X2zrCt2dOknlFozNf6zG0KTQlr8w==
+bitloops-gherkin@^0.2.5:
+  version "0.2.5"
+  resolved "https://registry.yarnpkg.com/bitloops-gherkin/-/bitloops-gherkin-0.2.5.tgz#dcbe224a82d9f24ec4afb259ced8bda21a345bb9"
+  integrity sha512-A1Ir9VM0ty1d/QgKsf5j1+HLX4MnH2q4yuRr45v9WmIr4EqdL/ujkkxLv6RWzmN+pwNqJI9I4yzRJQE8S8KweA==
   dependencies:
     chalk "4.1.2"
     commander "^9.4.0"
