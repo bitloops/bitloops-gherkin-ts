@@ -138,11 +138,11 @@ defineFeature(feature, (test) => {
 
 Using an terminal command you can run the following:
 
->./node_modules/.bin/env-cmd -f .env bitloops-gherkin encode -t ./\_\_tests\_\_/step-definitions/testGoogleSheets.step.ts -k y0urAP1KeyHere
+>./node_modules/.bin/env-cmd -f .env bitloops-gherkin encode -t ./\_\_tests\_\_/step-definitions/testGoogleSheets.steps.ts -k y0urAP1KeyHere
 
 Using a .env file you can run the following:
 
-> ./node_modules/.bin/env-cmd -f .env bitloops-gherkin encode -t ./\_\_tests\_\_/step-definitions/testGoogleSheets.step.ts
+> ./node_modules/.bin/env-cmd -f .env bitloops-gherkin encode -t ./\_\_tests\_\_/step-definitions/testGoogleSheets.steps.ts
 
 ### That's it! :tada:
 
@@ -197,10 +197,10 @@ To make it easier to run your command, while loading your **.env** file, you can
 "encode": "./node_modules/.bin/env-cmd --silent -f .env bitloops-gherkin encode -t",
 ```
 
-Then to download and encode your tests into your **feature** file you can just run this (***note that you pass the step.ts file not the feature file***):
+Then to download and encode your tests into your **feature** file you can just run this:
 
 ```bash
-yarn encode ./__tests__/step-definitions/testGoogleSheets.step.ts
+yarn encode ./__tests__/step-definitions/testGoogleSheets.steps.ts
 ```
 or
 ```bash
