@@ -30,12 +30,16 @@ export class Encoder {
 
   constructor(apiKey: string, testFile: string) {
     // this.testFile = testFile;
-    const dir = path.dirname(testFile);
-    const tempFeatureFile = getFeatureFile(testFile);
-    if (path.isAbsolute(tempFeatureFile)) {
-      this.featureFile = tempFeatureFile;
+    if (testFile.includes('.feature')) {
+      this.featureFile = testFile;
     } else {
-      this.featureFile = path.normalize(`${dir.split('/__tests__/')[0]}/${tempFeatureFile}`);
+      const dir = path.dirname(testFile);
+      const tempFeatureFile = getFeatureFile(testFile);
+      if (path.isAbsolute(tempFeatureFile)) {
+        this.featureFile = tempFeatureFile;
+      } else {
+        this.featureFile = path.normalize(`${dir.split('/__tests__/')[0]}/${tempFeatureFile}`);
+      }
     }
     this.sheets = google.sheets({
       version: 'v4',
@@ -136,7 +140,8 @@ export class Encoder {
 }
 
 const getFeatureFile = (testFile: string): string => {
-  const fileContents = readFile(testFile);
+  let fileContents = readFile(testFile);
+  fileContents = fileContents.replace(/\r?\n|\r/g, ' ');
   if (fileContents.includes("loadFeature('")) {
     const firstPart = fileContents.split("loadFeature('")[1];
     const fileName = firstPart.split("'")[0];
@@ -146,8 +151,17 @@ const getFeatureFile = (testFile: string): string => {
     const fileName = firstPart.split('"')[0];
     return fileName;
   } else {
-    throw new Error(`:'( Could not find the feature file mentioned in the test file.
-Make sure you include a loadFeature() call in your test file...`);
+    const featureFileGuess = testFile
+      .replace('.steps.ts', '.feature')
+      .replace('.steps.js', '.feature')
+      .replace('/step-definitions/', '/features/');
+    try {
+      readFile(featureFileGuess);
+      return featureFileGuess;
+    } catch {
+      throw new Error(`:'( Could not find the feature file mentioned in the test file.
+        Make sure you include a loadFeature() call in your test file...`);
+    }
   }
 };
 

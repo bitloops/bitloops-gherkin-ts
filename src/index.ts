@@ -30,7 +30,7 @@ import { decoder } from './decoder.js';
 import enc from './commands/encode.js';
 import copyright, { copyrightSnippet } from './commands/copyright.js';
 
-const VERSION = '0.2.2';
+export const VERSION = '0.2.3';
 
 const decode = decoder;
 const d = decoder;

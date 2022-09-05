@@ -7,9 +7,7 @@
 
 node.js package that automatically generates Gherkin tables in Cucumber .feature files from test data pulled from your Google Sheet! :heart_eyes: :star2: :tada:
 
-![Demo](https://storage.googleapis.com/bitloops-github-assets/bitloops-gherkin-v0.2.0.gif)
-
-> Please note that there has been a change in version v0.2.2 where status now requires an @ in front of it (@status) in order to unreserve the word status for other columns
+![Demo](https://storage.googleapis.com/bitloops-github-assets/bitloops-gherkin-v0.2.3.gif)
 
 ## Installation
 
@@ -203,6 +201,10 @@ Then to download and encode your tests into your **feature** file you can just r
 
 ```bash
 yarn encode ./__tests__/step-definitions/testGoogleSheets.step.ts
+```
+or
+```bash
+yarn encode ./__tests__/features/testGoogleSheets.feature
 ```
 
 Finally, if you do not want to install the global CLI, you can add the following command to your **package.json**:
