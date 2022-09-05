@@ -30,7 +30,7 @@ import { decoder } from './decoder.js';
 import enc from './commands/encode.js';
 import copyright, { copyrightSnippet } from './commands/copyright.js';
 
-export const VERSION = '0.2.4';
+export const VERSION = '0.2.5';
 
 const decode = decoder;
 const d = decoder;
@@ -49,7 +49,7 @@ program
 program.summary(
   'bitloops-gherkin is a CLI that allows you to generate Gherkin tables in Cucumber feature files using Google Sheets',
 );
-program.description(copyrightSnippet);
+program.description(copyrightSnippet(VERSION));
 program
   .command('encode')
   .description('Initialize Bitloops')

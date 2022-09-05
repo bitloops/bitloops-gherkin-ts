@@ -1,5 +1,3 @@
-import { VERSION } from '../index.js';
-
 /**
  *  bitloops-gherkin
  *  Copyright (C) 2022 Bitloops S.A.
@@ -26,7 +24,9 @@ const transpile = (): void => {
   console.log();
 };
 
-export const copyrightSnippet = `bitloops-gherkin - v${VERSION} - Copyright (C) 2022 Bitloops S.A.
+export const copyrightSnippet = (
+  version: string,
+): string => `bitloops-gherkin - v${version} - Copyright (C) 2022 Bitloops S.A.
 This program comes with ABSOLUTELY NO WARRANTY; for details type \`bitloops-gherkin copyright\`.
 This is free software, and you are welcome to redistribute it
 under certain conditions; type \`bitloops-gherkin copyright\` for details.`;

@@ -20,6 +20,7 @@
 import chalk from 'chalk';
 import inquirer, { QuestionCollection } from 'inquirer';
 import { Encoder } from '../Encoder.js';
+import { VERSION } from '../index.js';
 import { copyrightSnippet } from './copyright.js';
 
 interface ICollection {
@@ -37,7 +38,7 @@ const questions: QuestionCollection<ICollection> = [
 
 const encode = async (source: ICollection): Promise<void> => {
   console.log();
-  console.log(copyrightSnippet);
+  console.log(copyrightSnippet(VERSION));
   console.log();
   const answers = await inquirer.prompt(questions, source);
   const apiKey = source.apiKey || process.env.BITLOOPS_GHERKIN_GOOGLE_SHEETS_API_KEY;
