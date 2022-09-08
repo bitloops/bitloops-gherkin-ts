@@ -28,24 +28,53 @@ export class Encoder {
   private encoder = new TextEncoder();
   private sheets;
 
-  constructor(apiKey: string, testFile: string) {
+  constructor(apiKey: string, testFile: string, readFileDI = readFile) {
     // this.testFile = testFile;
-    if (testFile.includes('.feature')) {
-      this.featureFile = testFile;
-    } else {
-      const dir = path.dirname(testFile);
-      const tempFeatureFile = getFeatureFile(testFile);
-      if (path.isAbsolute(tempFeatureFile)) {
-        this.featureFile = tempFeatureFile;
-      } else {
-        this.featureFile = path.normalize(`${dir.split('/__tests__/')[0]}/${tempFeatureFile}`);
-      }
-    }
+    this.featureFile = this.getFeatureFile(testFile, readFileDI, process.cwd());
     this.sheets = google.sheets({
       version: 'v4',
       auth: apiKey,
     });
   }
+
+  protected getFeatureFile = (
+    testFile: string,
+    readFileDI: (file: string) => string,
+    cwd: string,
+  ): string => {
+    if (testFile.includes('.feature') && path.isAbsolute(testFile)) {
+      return testFile;
+    } else if (path.isAbsolute(testFile)) {
+      // const dir = path.dirname(testFile);
+      const tempFeatureFile = searchFeatureFile(testFile, readFileDI, cwd);
+      if (path.isAbsolute(tempFeatureFile)) {
+        return tempFeatureFile;
+      } else {
+        // e.g. /home/user/project/__tests__/step-definitions/test.steps.ts, ./__tests__/features/test.feature
+        // split /__tests__/ -> /home/user/project, / , __tests__, / ,features/test.feature
+        return path.normalize(
+          `${testFile.split('/__tests__/')[0]}/__tests__/${
+            tempFeatureFile.split('/__tests__/')[1]
+          }`,
+        );
+      }
+    } else {
+      const tempFeatureFile = searchFeatureFile(testFile, readFileDI, cwd);
+      if (path.isAbsolute(tempFeatureFile)) {
+        return tempFeatureFile;
+      } else {
+        // cwd: /home/user/john/
+        // e.g. ./__tests__/step-definitions/test.steps.ts, ./__tests__/features/test.feature
+        // /home/user/john/__tests__/step-definitions/test.steps.ts, ./__tests__/features/test.feature
+        const absoluteTestFile = path.normalize(`${cwd}/${testFile}`);
+        return path.normalize(
+          `${absoluteTestFile.split('/__tests__/')[0]}/__tests__/${
+            tempFeatureFile.split('/__tests__/')[1]
+          }`,
+        );
+      }
+    }
+  };
 
   public encodeFeatureFile = async (): Promise<void> => {
     const testFileLines = readFile(this.featureFile).split('\n');
@@ -139,24 +168,32 @@ export class Encoder {
   };
 }
 
-const getFeatureFile = (testFile: string): string => {
-  let fileContents = readFile(testFile);
+const searchFeatureFile = (
+  testFile: string,
+  readFileDI: (file: string) => string,
+  cwd: string,
+): string => {
+  let fileContents = readFileDI(testFile);
   fileContents = fileContents.replace(/\r?\n|\r/g, ' ');
+  fileContents = fileContents.replaceAll(' ', '');
   if (fileContents.includes("loadFeature('")) {
     const firstPart = fileContents.split("loadFeature('")[1];
     const fileName = firstPart.split("'")[0];
     return fileName;
   } else if (fileContents.includes('loadFeature("')) {
     const firstPart = fileContents.split('loadFeature("')[1];
+    console.log('cwd', cwd);
     const fileName = firstPart.split('"')[0];
     return fileName;
   } else {
     const featureFileGuess = testFile
       .replace('.steps.ts', '.feature')
       .replace('.steps.js', '.feature')
+      .replace('.ts', '.feature')
+      .replace('.js', '.feature')
       .replace('/step-definitions/', '/features/');
     try {
-      readFile(featureFileGuess);
+      readFileDI(featureFileGuess);
       return featureFileGuess;
     } catch {
       throw new Error(`:'( Could not find the feature file mentioned in the test file.

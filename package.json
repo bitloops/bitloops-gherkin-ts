@@ -77,7 +77,8 @@
     "test:watch": "jest --watch",
     "ts-node-esm": "node --loader ts-node/esm",
     "test:enc": "./node_modules/.bin/env-cmd -f .env node --loader ts-node/esm __tests__/step-definitions/utils/encoder.ts",
-    "test-exp": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
+    "test-exp": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "encode": "./node_modules/.bin/env-cmd -f examples/.env ts-node-esm src/index.ts encode -t"
   },
   "files": [
     "lib",

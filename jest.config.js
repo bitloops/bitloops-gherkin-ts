@@ -21,5 +21,6 @@ export default {
   ],
   setupFilesAfterEnv: ['jest-extended/all'],
   transform: {},
+  modulePathIgnorePatterns: ["<rootDir>/examples/"]
   // "extensionsToTreatAsEsm": [".ts"]
 };
