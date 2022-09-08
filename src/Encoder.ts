@@ -46,7 +46,7 @@ export class Encoder {
       return testFile;
     } else if (path.isAbsolute(testFile)) {
       // const dir = path.dirname(testFile);
-      const tempFeatureFile = searchFeatureFile(testFile, readFileDI, cwd);
+      const tempFeatureFile = searchFeatureFile(testFile, readFileDI);
       if (path.isAbsolute(tempFeatureFile)) {
         return tempFeatureFile;
       } else {
@@ -59,7 +59,7 @@ export class Encoder {
         );
       }
     } else {
-      const tempFeatureFile = searchFeatureFile(testFile, readFileDI, cwd);
+      const tempFeatureFile = searchFeatureFile(testFile, readFileDI);
       if (path.isAbsolute(tempFeatureFile)) {
         return tempFeatureFile;
       } else {
@@ -168,11 +168,7 @@ export class Encoder {
   };
 }
 
-const searchFeatureFile = (
-  testFile: string,
-  readFileDI: (file: string) => string,
-  cwd: string,
-): string => {
+const searchFeatureFile = (testFile: string, readFileDI: (file: string) => string): string => {
   let fileContents = readFileDI(testFile);
   fileContents = fileContents.replace(/\r?\n|\r/g, ' ');
   fileContents = fileContents.replaceAll(' ', '');
@@ -182,7 +178,6 @@ const searchFeatureFile = (
     return fileName;
   } else if (fileContents.includes('loadFeature("')) {
     const firstPart = fileContents.split('loadFeature("')[1];
-    console.log('cwd', cwd);
     const fileName = firstPart.split('"')[0];
     return fileName;
   } else {

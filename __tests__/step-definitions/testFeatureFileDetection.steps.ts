@@ -24,7 +24,7 @@ import { Encoder } from '../../src/Encoder.js';
 const feature = loadFeature('./__tests__/features/testFeatureFileDetection.feature');
 
 class Tester extends Encoder {
-  constructor(apiKey: string, testFile: string, readFileDI = (str: string) => str) {
+  constructor(apiKey: string, testFile: string, readFileDI = (str: string): string => str) {
     super(apiKey, testFile, readFileDI);
   }
 
