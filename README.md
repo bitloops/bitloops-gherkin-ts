@@ -1,7 +1,8 @@
-![Bitloops](https://storage.googleapis.com/wwwbitloopscom/bitloops-logo_320x80.png)
+![Bitloops][bitloops-logo]
 
 # bitloops-gherkin
 
+[![GitHub Actions CI][ci-badge]][ci-url]
 [![npm version][npmimg]][npm]
 [![Known Vulnerabilities][snyk-image]][snyk-url]
 
@@ -253,6 +254,9 @@ Currently, bitloops-gherkins supports API keys and public Google Sheet files. In
 
 # Like what you see? Don't forget to star ⭐ our repo!
 
+[bitloops-logo]: https://storage.googleapis.com/wwwbitloopscom/bitloops-logo_320x80.png
+[ci-badge]: https://github.com/bitloops/bitloops-gherkin-ts/workflows/CI/badge.svg
+[ci-url]: https://github.com/bitloops/bitloops-gherkin-ts/actions/workflows/main.yml
 [snyk-image]: https://snyk.io/test/github/bitloops/bitloops-gherkin-ts/badge.svg
 [snyk-url]: https://snyk.io/test/github/bitloops/bitloops-gherkin-ts
 [npmimg]: https://img.shields.io/npm/v/bitloops-gherkin.svg
