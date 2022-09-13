@@ -59,7 +59,9 @@ export class Encoder {
         );
       }
     } else {
-      const tempFeatureFile = searchFeatureFile(testFile, readFileDI);
+      const patchedTestFile =
+        testFile.startsWith('./') || testFile.startsWith('../') ? testFile : `./${testFile}`;
+      const tempFeatureFile = searchFeatureFile(patchedTestFile, readFileDI);
       if (path.isAbsolute(tempFeatureFile)) {
         return tempFeatureFile;
       } else {
