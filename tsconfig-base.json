@@ -1,0 +1,37 @@
+{
+    "compilerOptions": {
+        "allowJs": true,
+        "allowSyntheticDefaultImports": true,
+        "baseUrl": "src",
+        "declaration": true,
+        "esModuleInterop": true,
+        "inlineSourceMap": false,
+        "lib": ["esnext"], //["ES2022"]
+        // "target": "ES2022",
+        "listEmittedFiles": false,
+        "listFiles": false,
+        "moduleResolution": "node", //"Node16"
+        // "module": "Node16",
+        "noFallthroughCasesInSwitch": true,
+        "pretty": true,
+        "resolveJsonModule": true,
+        "rootDir": ".", //"."
+        "skipLibCheck": true,
+        "strict": true,
+        "traceResolution": false,
+        "types": ["node", "jest"],
+        "importHelpers": true,
+        "alwaysStrict": true,
+        "sourceMap": true,
+        "forceConsistentCasingInFileNames": true,
+        "noImplicitReturns": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "noImplicitAny": false,
+        "noImplicitThis": false,
+        "strictNullChecks": false,
+    },
+    "compileOnSave": false,
+    "exclude": ["node_modules", "dist", "examples/**/*"],
+    "include": ["src/**/*", "__tests__/**/*"]
+}
