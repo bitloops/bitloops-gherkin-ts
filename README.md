@@ -5,6 +5,7 @@
 [![GitHub Actions CI][ci-badge]][ci-url]
 [![npm version][npmimg]][npm]
 [![Known Vulnerabilities][snyk-image]][snyk-url]
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fbitloops%2Fbitloops-gherkin-ts.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fbitloops%2Fbitloops-gherkin-ts?ref=badge_shield)
 
 node.js package that automatically generates Gherkin tables in Cucumber .feature files from test data pulled from your Google Sheet! :heart_eyes: :star2: :tada:
 
@@ -261,3 +262,7 @@ Currently, bitloops-gherkins supports API keys and public Google Sheet files. In
 [snyk-url]: https://snyk.io/test/github/bitloops/bitloops-gherkin-ts
 [npmimg]: https://img.shields.io/npm/v/bitloops-gherkin.svg
 [npm]: https://www.npmjs.org/package/bitloops-gherkin
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fbitloops%2Fbitloops-gherkin-ts.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fbitloops%2Fbitloops-gherkin-ts?ref=badge_large)
