@@ -5,6 +5,7 @@
 [![GitHub Actions CI][ci-badge]][ci-url]
 [![npm version][npmimg]][npm]
 [![Known Vulnerabilities][snyk-image]][snyk-url]
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fbitloops%2Fbitloops-gherkin-ts.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fbitloops%2Fbitloops-gherkin-ts?ref=badge_shield)
 
 node.js package that automatically generates Gherkin tables in Cucumber .feature files from test data pulled from your Google Sheet! :heart_eyes: :star2: :tada:
 
